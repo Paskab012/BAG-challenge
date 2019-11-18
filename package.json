@@ -1,0 +1,19 @@
+{
+  "name": "nisisi-backend",
+  "version": "1.0.0",
+  "description": "This is an e-commerce with a product customizer. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cop1fab/nisisi-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cop1fab/nisisi-backend/issues"
+  },
+  "homepage": "https://github.com/cop1fab/nisisi-backend#readme"
+}
