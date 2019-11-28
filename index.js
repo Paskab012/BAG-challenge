@@ -3,10 +3,11 @@ const mongoose = require('mongoose')
 
 require('dotenv').config();
 
+const userRoutes = require('./routes/users/users');
 //app
 const app = express();
 
-//DB connection 
+//DB connection
 
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
@@ -14,10 +15,9 @@ mongoose.connect(process.env.DATABASE, {
     useUnifiedTopology: true
 }).then(() => console.log('MongoDB connected successfully!'))
 
-//routes 
-app.get('/', (req, res) => {
-    res.send('Hey you are here')
-})
+// routes middleware 
+
+app.use('/api', userRoutes);
 
 const PORT  = process.env.PORT || 3000;
 
