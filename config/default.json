@@ -1,0 +1,5 @@
+{
+  "mongoURI_DEV": "mongodb://nisisiUser:nisisi2020@localhost:27017/nisisiDb",
+  "mongoURI_TEST": "mongodb://nisisiUser:nisisi2020@localhost:27017/nisisiTest",
+  "jwtSecret": "peace360"
+}
