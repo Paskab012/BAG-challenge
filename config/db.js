@@ -1,7 +1,14 @@
 import mongoose from 'mongoose';
 import config from 'config';
 
-const db = config.get('mongoURI');
+let db;
+if (process.env.NODE_ENV === 'development') {
+  db = config.get('mongoURI_DEV');
+} else if (process.env.NODE_ENV === 'production') {
+  db = config.get('MONGO_URI');
+} else {
+  db = config.get('mongoURI_TEST');
+}
 
 const connectDB = async () => {
   try {
