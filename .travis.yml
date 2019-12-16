@@ -1,0 +1,11 @@
+sudo: false
+language: node_js
+node_js: stable
+services:
+  - mongodb
+script:
+  - npm run test
+  - npm run coverage
+
+after_success:
+  - npm run coverage

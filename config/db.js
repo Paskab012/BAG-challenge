@@ -1,14 +1,13 @@
+/* eslint-disable no-empty */
+/* eslint-disable no-nested-ternary */
 import mongoose from 'mongoose';
 import config from 'config';
 
-let db;
-if (process.env.NODE_ENV === 'development') {
-  db = config.get('mongoURI_DEV');
-} else if (process.env.NODE_ENV === 'production') {
-  db = config.get('MONGO_URI');
-} else {
-  db = config.get('mongoURI_TEST');
-}
+const db = process.env.NODE_ENV === 'development'
+  ? config.get('mongoURI_DEV')
+  : process.env.NODE_ENV === 'production'
+    ? config.get('MONGO_URI')
+    : config.get('mongoURI_TEST');
 
 const connectDB = async () => {
   try {
@@ -18,10 +17,7 @@ const connectDB = async () => {
       useFindAndModify: false,
       useUnifiedTopology: true
     });
-    console.log('db connected');
-  } catch (err) {
-    console.log('failure=====', err);
-  }
+  } catch (err) {}
 };
 
 export default connectDB;
