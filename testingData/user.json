@@ -19,5 +19,17 @@
     "password": "emabush2015",
     "avatar": "avadkfkfk",
     "isAdmin": false
+  },
+  "loginUser": {
+    "email": "jaman@gmail.com",
+    "password": "nisisi2020@"
+  },
+  "invalidLoginUser": {
+    "email": "invalid@gmail.com",
+    "password": "nisisi2020@"
+  },
+  "invalidLoginUserPassword": {
+    "email": "jaman@gmail.com",
+    "password": "invalidPassword2020@"
   }
 }

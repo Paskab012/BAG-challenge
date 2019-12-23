@@ -1,19 +1,29 @@
 /* eslint-disable import/prefer-default-export */
+import bcrypt from 'bcryptjs';
 import User from '../models/User';
+import httpError from '../helpers/errorsHandler/httpError';
 
 const checkUser = async (req, res, next) => {
   const { email } = req.body;
-  try {
-    const user = await User.findOne({ email });
-    if (user) {
-      return res
-        .status(400)
-        .json({ errors: [{ message: 'User already exists' }] });
-    }
-    next();
-  } catch (error) {
-    return res.status(500).json({ status: 500, error: error.message });
+
+  const user = await User.findOne({ email });
+  if (user) {
+    throw new httpError(400, 'User already exists');
   }
+  next();
 };
 
-export { checkUser };
+const checkUserLogin = async (req, res, next) => {
+  const { email, password } = req.body;
+
+  const user = await User.findOne({ email });
+  if (!user) {
+    throw new httpError(400, 'Invalid credentials');
+  }
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+    throw new httpError(400, 'Invalid credentials');
+  }
+  next();
+};
+export { checkUser, checkUserLogin };

@@ -1,6 +1,5 @@
 import gravatar from 'gravatar';
 import bcrypt from 'bcryptjs';
-import { validationResult } from 'express-validator';
 import User from '../../models/User';
 import generateToken from '../../helpers/generateToken';
 
@@ -17,12 +16,6 @@ class UserController {
    * @returns {Object} Response
    */
   async signup(req, res) {
-    // validation here
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
     const {
       name, email, password, isAdmin
     } = req.body;
@@ -52,6 +45,26 @@ class UserController {
     const registeredUser = await User.findById(user.id).select('-password');
     const token = generateToken(payload);
     res.status(201).json({ status: 201, registeredUser, token });
+  }
+
+  /**
+   *
+   * @param {Object} req - Request from client
+   * @param {Object} res - Response from the db
+   * @returns {Object} Response
+   */
+  async login(req, res) {
+    const { email } = req.body;
+    const user = await User.findOne({ email });
+    const payload = {
+      user: {
+        id: user.id,
+        name: user.name,
+        avatar: user.avatar
+      }
+    };
+    const token = generateToken(payload);
+    return res.status(200).json({ status: 200, user, token });
   }
 }
 

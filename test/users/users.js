@@ -8,6 +8,9 @@ import {
   signupUser,
   invalidUser,
   existingUser,
+  loginUser,
+  invalidLoginUser,
+  invalidLoginUserPassword
 } from '../../testingData/user.json';
 
 const newUser = new UserController();
@@ -51,6 +54,30 @@ describe('User', () => {
       .post('/api/users')
       .set('Content-Type', 'application/json')
       .send(existingUser);
+    res.should.have.status(400);
+  });
+  it('Should login a user and return the status 201', async () => {
+    const res = await chai
+      .request(app)
+      .post('/api/users/login')
+      .set('Content-Type', 'application/json')
+      .send(loginUser);
+    res.should.have.status(200);
+  });
+  it('Should not login with wrong email address', async () => {
+    const res = await chai
+      .request(app)
+      .post('/api/users/login')
+      .set('Content-Type', 'application/json')
+      .send(invalidLoginUser);
+    res.should.have.status(400);
+  });
+  it('Should not login with wrong password', async () => {
+    const res = await chai
+      .request(app)
+      .post('/api/users/login')
+      .set('Content-Type', 'application/json')
+      .send(invalidLoginUserPassword);
     res.should.have.status(400);
   });
 });
