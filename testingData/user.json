@@ -1,6 +1,23 @@
 {
   "signupUser": {
+    "name": "jaman",
     "email": "jaman@gmail.com",
-    "passowrd": "nisisi2020@"
+    "password": "nisisi2020@",
+    "avatar": "avadtdkdksldkkdddd",
+    "isAdmin": false
+  },
+  "invalidUser": {
+    "name": " ",
+    "email": "jaman",
+    "password": "nisisi2020@",
+    "avatar": "avad",
+    "isAdmin": false
+  },
+  "existingUser": {
+    "name": "EmaBush",
+    "email": "ema@gmail.com",
+    "password": "emabush2015",
+    "avatar": "avadkfkfk",
+    "isAdmin": false
   }
 }
