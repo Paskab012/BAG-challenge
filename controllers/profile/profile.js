@@ -1,4 +1,5 @@
 import Profile from '../../models/Profile';
+import httpError from '../../helpers/errorsHandler/httpError';
 
 /**
  * @exports
@@ -39,6 +40,22 @@ class ProfileController {
     profile = new Profile(profileFields);
     await profile.save();
     return res.status(201).json({ status: 201, profile });
+  }
+
+  /**
+ *
+ * @param {Object} req Request from client
+ * @param {Object} res Response to the client
+ * @returns {Object} Response
+ */
+  async currentUserProfile(req, res) {
+    const profile = await Profile.findOne({
+      user: req.user.id
+    }).populate('user', ['name', 'avatar']);
+    if (!profile) {
+      throw new httpError(400, 'There is no profile for this user');
+    }
+    return res.status(200).json({ status: 200, profile });
   }
 }
 

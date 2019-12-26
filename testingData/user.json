@@ -21,8 +21,8 @@
     "isAdmin": false
   },
   "loginUser": {
-    "email": "jaman@gmail.com",
-    "password": "nisisi2020@"
+    "email":"ema@gmail.com",
+    "password":"emabush2015"
   },
   "invalidLoginUser": {
     "email": "invalid@gmail.com",
