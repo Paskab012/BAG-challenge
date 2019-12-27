@@ -22,7 +22,7 @@ const checkUserLogin = async (req, res, next) => {
   }
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
-    throw new httpError(400, 'Invalid credentials');
+    throw new httpError(400, 'Incorrect password');
   }
   next();
 };

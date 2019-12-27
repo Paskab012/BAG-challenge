@@ -17,14 +17,14 @@ router.post(
   validateUser,
   asyncHandler(checkUser),
   validations,
-  users.signup
+  asyncHandler(users.signup)
 );
 router.post(
   '/login',
   validateUserLogin,
   asyncHandler(checkUserLogin),
   validations,
-  users.login
+  asyncHandler(users.login)
 );
 
 export default router;

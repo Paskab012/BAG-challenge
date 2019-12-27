@@ -14,25 +14,21 @@ import {
 import { profileContent, invalidToken } from '../../testingData/profile.json';
 
 let token;
-const user = new User({
-  name: existingUser.name,
-  email: existingUser.email,
-  password: existingUser.password,
-  avatar: existingUser.avatar,
-  isAdmin: existingUser.isAdmin
-});
+let loginUserToken;
 
 chai.use(chaiHttp);
 chai.should();
 
+before(async () => {
+  await User.findOneAndDelete({ email: signupUser.email });
+  await Profile.remove({});
+  await chai.request(app)
+    .post('/api/users')
+    .set('Content-Type', 'application/json')
+    .send(existingUser);
+});
 
 describe('User', () => {
-  before(async () => {
-    await User.findOneAndDelete({ email: signupUser.email });
-    await Profile.remove({});
-    user.save();
-  });
-
   it('Should create a user and return the status 201', async () => {
     const res = await chai
       .request(app)
@@ -58,13 +54,14 @@ describe('User', () => {
       .send(existingUser);
     res.should.have.status(400);
   });
-  it('Should login a user and return the status 201', async () => {
+  it('Should login a user and return the status 200', async () => {
     const res = await chai
       .request(app)
       .post('/api/users/login')
       .set('Content-Type', 'application/json')
       .send(loginUser);
     res.should.have.status(200);
+    loginUserToken = res.body.token.generate;
   });
   it('Should not login with wrong email address', async () => {
     const res = await chai
@@ -113,6 +110,22 @@ describe('User', () => {
         .set('auth-token', token)
         .send(profileContent);
       res.should.have.status(200);
+    });
+    it('Should get the authenticated user profile and return the status 200', async () => {
+      const res = await chai
+        .request(app)
+        .get('/api/profile/me')
+        .set('auth-token', token)
+        .send(profileContent);
+      res.should.have.status(200);
+    });
+    it('Should return the status 400 if the current user does not have any profile', async () => {
+      const res = await chai
+        .request(app)
+        .get('/api/profile/me')
+        .set('auth-token', loginUserToken)
+        .send(profileContent);
+      res.should.have.status(400);
     });
   });
 });
