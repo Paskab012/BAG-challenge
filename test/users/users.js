@@ -1,8 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../../index';
-import User from '../../models/User';
-import Profile from '../../models/Profile';
 import {
   signupUser,
   invalidUser,
@@ -19,14 +17,7 @@ let loginUserToken;
 chai.use(chaiHttp);
 chai.should();
 
-before(async () => {
-  await User.findOneAndDelete({ email: signupUser.email });
-  await Profile.remove({});
-  await chai.request(app)
-    .post('/api/users')
-    .set('Content-Type', 'application/json')
-    .send(existingUser);
-});
+before(async () => {});
 
 describe('User', () => {
   it('Should create a user and return the status 201', async () => {
