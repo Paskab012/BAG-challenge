@@ -18,7 +18,7 @@
     "email": "ema@gmail.com",
     "password": "emabush2015",
     "avatar": "avadkfkfk",
-    "isAdmin": false
+    "isAdmin": true
   },
   "loginUser": {
     "email":"ema@gmail.com",
@@ -31,5 +31,27 @@
   "invalidLoginUserPassword": {
     "email": "jaman@gmail.com",
     "password": "invalidPassword2020@"
+  },
+  "normalUser": {
+    "name": "clara",
+    "email": "clara@gmail.com",
+    "password": "nisisi2020@",
+    "avatar": "avadtdkdksldkkdddd",
+    "isAdmin": false
+  },
+  "normalUserLogin":{
+    "email": "clara@gmail.com",
+    "password": "nisisi2020@"
+  },
+  "isNotTheOwner": {
+    "name": "michelle",
+    "email": "michelle@gmail.com",
+    "password": "nisisi2020@",
+    "avatar": "avadtdkdksldkkdddd",
+    "isAdmin": true
+  },
+  "isNotTheOwnerLogin":{
+    "email": "clara@gmail.com",
+    "password": "nisisi2020@"
   }
 }
