@@ -1,4 +1,5 @@
-import Category from '../../models/Category';
+import Category from '../models/Category';
+import HttpError from '../helpers/errorsHandler/httpError';
 
 /**
  * @exports
@@ -39,6 +40,9 @@ class CategoryController {
         date: -1
       })
       .populate('user', ['name', 'avatar']);
+    if (!categories) {
+      throw new HttpError(404, 'Sorry, categories are not available for this moment');
+    }
     res.status(200).json({
       status: 200,
       categories
@@ -53,7 +57,7 @@ class CategoryController {
    */
   async getOneCategory(req, res) {
     const category = await Category.findById(
-      req.params.category_id
+      req.params.categoryId
     ).populate('user', ['name', 'avatar']);
     res.status(200).json({
       status: 200,
@@ -74,7 +78,7 @@ class CategoryController {
       image: req.body.image
     };
     await Category.findOneAndUpdate(
-      { _id: req.params.category_id },
+      { _id: req.params.categoryId },
       updatedCategory
     );
     res.status(200).json({ status: 200, updatedCategory });
@@ -87,7 +91,7 @@ class CategoryController {
    * @returns {Object} Response
    */
   async deleteOneCategory(req, res) {
-    const category = await Category.findById(req.params.category_id);
+    const category = await Category.findById(req.params.categoryId);
     await category.remove();
     return res.status(200).json({
       status: 200,

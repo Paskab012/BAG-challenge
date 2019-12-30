@@ -1,9 +1,9 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../../index';
-import { beforeFunc } from '../_beforeAll.test';
-import { category, updatedCategory } from '../../testingData/category.json';
-import { normalUserLogin, isNotTheOwnerLogin } from '../../testingData/user.json';
+import app from '../index';
+import { beforeFunc } from './_beforeAll.test';
+import { category, updatedCategory } from '../testingData/category.json';
+import { normalUserLogin, isNotTheOwnerLogin } from '../testingData/user.json';
 
 chai.use(chaiHttp);
 chai.should();

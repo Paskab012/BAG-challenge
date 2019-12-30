@@ -1,5 +1,5 @@
-import Profile from '../../models/Profile';
-import httpError from '../../helpers/errorsHandler/httpError';
+import Profile from '../models/Profile';
+import httpError from '../helpers/errorsHandler/httpError';
 
 /**
  * @exports

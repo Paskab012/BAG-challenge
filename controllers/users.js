@@ -1,7 +1,7 @@
 import gravatar from 'gravatar';
 import bcrypt from 'bcryptjs';
-import User from '../../models/User';
-import generateToken from '../../helpers/generateToken';
+import User from '../models/User';
+import generateToken from '../helpers/generateToken';
 
 /**
  * @user Controller

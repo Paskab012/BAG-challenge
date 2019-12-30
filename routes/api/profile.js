@@ -1,9 +1,8 @@
 import express from 'express';
-import Profile from '../../controllers/profile/profile';
-import { validateProfile } from '../../middleware/validateProfile';
+import Profile from '../../controllers/profile';
+import { validateProfile, validations } from '../../middleware/validateAll';
 import auth from '../../middleware/auth';
 import asyncHandler from '../../helpers/errorsHandler/asyncHandler';
-import { validations } from '../../middleware/validateUser';
 
 const profile = new Profile();
 

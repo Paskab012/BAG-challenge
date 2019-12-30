@@ -1,10 +1,10 @@
 import express from 'express';
-import Users from '../../controllers/users/users';
+import Users from '../../controllers/users';
 import {
   validateUser,
   validations,
   validateUserLogin
-} from '../../middleware/validateUser';
+} from '../../middleware/validateAll';
 import { checkUser, checkUserLogin } from '../../middleware/checkUser';
 import asyncHandler from '../../helpers/errorsHandler/asyncHandler';
 
