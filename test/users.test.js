@@ -1,6 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../../index';
+import app from '../index';
 import {
   signupUser,
   invalidUser,
@@ -8,8 +8,8 @@ import {
   loginUser,
   invalidLoginUser,
   invalidLoginUserPassword
-} from '../../testingData/user.json';
-import { profileContent, invalidToken } from '../../testingData/profile.json';
+} from '../testingData/user.json';
+import { profileContent, invalidToken } from '../testingData/profile.json';
 
 let token;
 let loginUserToken;

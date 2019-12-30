@@ -1,11 +1,10 @@
 import express from 'express';
-import Category from '../../controllers/category/category';
-import { validateCategory } from '../../middleware/validateCategory';
+import Category from '../../controllers/category';
+import { validateCategory, validations } from '../../middleware/validateAll';
 import auth from '../../middleware/auth';
 import asyncHandler from '../../helpers/errorsHandler/asyncHandler';
-import { validations } from '../../middleware/validateUser';
 import { checkAdmin } from '../../middleware/isAdmin';
-import { checkItem } from '../../middleware/checkItemAccess';
+import { checkCategoryAccess } from '../../middleware/checkItem';
 
 const category = new Category();
 
@@ -16,13 +15,13 @@ router.post(
   [auth, asyncHandler(checkAdmin), validateCategory, validations],
   asyncHandler(category.createCategory)
 );
-router.get('/', auth, asyncHandler(category.getCategories));
-router.get('/:category_id', auth, asyncHandler(category.getOneCategory));
+router.get('/', asyncHandler(category.getCategories));
+router.get('/:categoryId', asyncHandler(category.getOneCategory));
 router.put(
-  '/:category_id',
+  '/:categoryId',
   [
     auth,
-    asyncHandler(checkItem),
+    asyncHandler(checkCategoryAccess),
     asyncHandler(checkAdmin),
     validateCategory,
     validations
@@ -30,8 +29,8 @@ router.put(
   asyncHandler(category.updateCategory)
 );
 router.delete(
-  '/:category_id',
-  [auth, asyncHandler(checkItem), asyncHandler(checkAdmin)],
+  '/:categoryId',
+  [auth, asyncHandler(checkCategoryAccess), asyncHandler(checkAdmin)],
   asyncHandler(category.deleteOneCategory)
 );
 export default router;

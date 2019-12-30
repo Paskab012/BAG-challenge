@@ -1,0 +1,13 @@
+{
+  "products": {
+    "title": "Mini Boubou",
+    "description": "African Wear Dresses, Ankara Dress Styles, African Fashion Ankara, African Print Fashion, Africa Fashion. ... African Fashion Skirts, African Inspired Fashion, African Print Fashion, African Print Dress Designs, African Print Dresses. ... African Wear, African Attire, African Lace Dresses",
+    "image": "link to the image",
+    "price": 20
+  },
+  "categoryToUse": {
+    "title":"African Boubou",
+    "description": "a boubou (or bubu, or grand boubou, or grand bubu) is an African garment worn by men and women in much of West Africa, and parts of Central Africa.",
+    "image":"imageLink"
+}
+}

@@ -8,6 +8,7 @@ import Category from '../models/Category';
 import {
   existingUser, loginUser, normalUser, isNotTheOwner
 } from '../testingData/user.json';
+import Products from '../models/Products';
 
 let tokenToUse;
 let res;
@@ -19,6 +20,7 @@ const beforeFunc = async () => {
   await Profile.remove({});
   await User.remove({});
   await Category.remove({});
+  await Products.remove({});
   await chai
     .request(app)
     .post('/api/users')
