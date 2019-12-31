@@ -85,4 +85,11 @@ describe('Category', () => {
       .set('auth-token', token);
     res.should.have.status(200);
   });
+  it('Should return the status 404, if there is no available categories', async () => {
+    const res = await chai
+      .request(app)
+      .get('/api/category')
+      .set('Content-Type', 'application/json');
+    res.should.have.status(404);
+  });
 });

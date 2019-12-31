@@ -3,6 +3,7 @@ import chaiHttp from 'chai-http';
 import app from '../index';
 import { products, categoryToUse } from '../testingData/products.json';
 import { normalUserLogin, isNotTheOwnerLogin, existingUser } from '../testingData/user.json';
+import Products from '../models/Products';
 
 
 chai.use(chaiHttp);
@@ -64,7 +65,8 @@ describe('Products', () => {
     const res = await chai
       .request(app)
       .put(`/api/products/${productId}`)
-      .set('auth-token', isNotTheOwnerToken);
+      .set('auth-token', isNotTheOwnerToken)
+      .send(products);
     res.should.have.status(401);
   });
   it('Should get all products and return the status 200', async () => {
@@ -95,5 +97,20 @@ describe('Products', () => {
       .delete(`/api/products/${productId}`)
       .set('auth-token', token);
     res.should.have.status(200);
+  });
+  it('Should return the status 404 if there is not available product', async () => {
+    await Products.remove({});
+    const res = await chai
+      .request(app)
+      .get('/api/products')
+      .set('Content-Type', 'application/json');
+    res.should.have.status(404);
+  });
+  it('Should return the status 404 if there is not product', async () => {
+    const res = await chai
+      .request(app)
+      .get(`/api/products/${productId}`)
+      .set('Content-Type', 'application/json');
+    res.should.have.status(404);
   });
 });

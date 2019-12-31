@@ -40,7 +40,7 @@ class CategoryController {
         date: -1
       })
       .populate('user', ['name', 'avatar']);
-    if (!categories) {
+    if (!categories.length) {
       throw new HttpError(404, 'Sorry, categories are not available for this moment');
     }
     res.status(200).json({
