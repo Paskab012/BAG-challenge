@@ -46,7 +46,7 @@ class ProductsController {
       })
       .populate('user', ['name', 'avatar'])
       .populate('category', ['title', 'description']);
-    if (!products) {
+    if (!products.length) {
       throw new HttpError(404, 'No available product for the moment');
     }
     res.status(200).json({
@@ -62,10 +62,9 @@ class ProductsController {
    * @returns {Object} Response
    */
   async getOneProduct(req, res) {
-    const { productsId } = req.params;
-    const products = await Products.findById(
-      productsId
-    ).populate('user', ['name', 'avatar'])
+    const { productId } = req.params;
+    const products = await Products.findById(productId)
+      .populate('user', ['name', 'avatar'])
       .populate('category', ['title', 'description']);
     res.status(200).json({
       status: 200,
@@ -86,10 +85,7 @@ class ProductsController {
       description: req.body.description,
       image: req.body.image
     };
-    await Products.findOneAndUpdate(
-      { _id: productId },
-      updatedProducts
-    );
+    await Products.findOneAndUpdate({ _id: productId }, updatedProducts);
     res.status(200).json({ status: 200, updatedProducts });
   }
 

@@ -16,7 +16,6 @@ const checkCategoryAccess = async (req, res, next) => {
 const checkProductAccess = async (req, res, next) => {
   const { productId } = req.params;
   const product = await Products.findById(productId);
-
   if (product.user.toString() !== req.user.id) {
     throw new httpError(
       401,
