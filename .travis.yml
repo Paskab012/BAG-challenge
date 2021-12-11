@@ -10,4 +10,4 @@ after_success:
   - npm run coverage
 before_script:
   - sleep 15
-  - mongo nisisiTest --eval 'db.createUser({user:"nisisiUser",pwd:"nisisi2020",roles:["readWrite"]});'
+  - mongo challengeTest --eval 'db.createUser({user:"challengeUser",pwd:"challenge2020",roles:["readWrite"]});'

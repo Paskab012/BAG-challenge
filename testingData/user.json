@@ -2,14 +2,14 @@
   "signupUser": {
     "name": "jaman",
     "email": "jaman@gmail.com",
-    "password": "nisisi2020@",
+    "password": "challenge2020@",
     "avatar": "avadtdkdksldkkdddd",
     "isAdmin": false
   },
   "invalidUser": {
     "name": " ",
     "email": "jaman",
-    "password": "nisisi2020@",
+    "password": "challenge2020@",
     "avatar": "avad",
     "isAdmin": false
   },
@@ -26,7 +26,7 @@
   },
   "invalidLoginUser": {
     "email": "invalid@gmail.com",
-    "password": "nisisi2020@"
+    "password": "challenge2020@"
   },
   "invalidLoginUserPassword": {
     "email": "jaman@gmail.com",
@@ -35,23 +35,23 @@
   "normalUser": {
     "name": "clara",
     "email": "clara@gmail.com",
-    "password": "nisisi2020@",
+    "password": "challenge2020@",
     "avatar": "avadtdkdksldkkdddd",
     "isAdmin": false
   },
   "normalUserLogin":{
     "email": "clara@gmail.com",
-    "password": "nisisi2020@"
+    "password": "challenge2020@"
   },
   "isNotTheOwner": {
     "name": "michelle",
     "email": "michelle@gmail.com",
-    "password": "nisisi2020@",
+    "password": "challenge2020@",
     "avatar": "avadtdkdksldkkdddd",
     "isAdmin": true
   },
   "isNotTheOwnerLogin":{
     "email": "clara@gmail.com",
-    "password": "nisisi2020@"
+    "password": "challenge2020@"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "nisisi-backend",
+  "name": "challenge-backend",
   "version": "1.0.0",
   "description": "This is an e-commerce with a product customizer. ",
   "main": "index.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cop1fab/nisisi-backend.git"
+    "url": "git+https://github.com/cop1fab/challenge-backend.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cop1fab/nisisi-backend/issues"
+    "url": "https://github.com/cop1fab/challenge-backend/issues"
   },
-  "homepage": "https://github.com/cop1fab/nisisi-backend#readme",
+  "homepage": "https://github.com/cop1fab/challenge-backend#readme",
   "dependencies": {
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",

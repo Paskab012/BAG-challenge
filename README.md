@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/code-gurus/nisisi-backend.svg?branch=integrage-travis-coverage-170282566)](https://travis-ci.org/code-gurus/nisisi-backend)
-[![Coverage Status](https://coveralls.io/repos/github/code-gurus/nisisi-backend/badge.svg?branch=develop)](https://coveralls.io/github/code-gurus/nisisi-backend?branch=develop)
+[![Build Status](https://travis-ci.org/code-gurus/challenge-backend.svg?branch=integrage-travis-coverage-170282566)](https://travis-ci.org/code-gurus/challenge-backend)
+[![Coverage Status](https://coveralls.io/repos/github/code-gurus/challenge-backend/badge.svg?branch=develop)](https://coveralls.io/github/code-gurus/challenge-backend?branch=develop)
 
-# nisisi-backend
+# challenge-backend
 
 This is an e-commerce platform that allows a user to customize their product before placing an order.
 
