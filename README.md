@@ -3,7 +3,6 @@
 
 # challenge-backend
 
-This is an e-commerce platform that allows a user to customize their product before placing an order.
 
 ---
 
@@ -51,10 +50,10 @@ After installing node, this project will need yarn too, so just run the followin
 ---
 
 ## Install
-
-    $ git clone https://github.com/YOUR_USERNAME/PROJECT_TITLE
-    $ cd PROJECT_TITLE
-    $ yarn install
+backend repo : https://github.com/KABIKA681/challenge-backend
+Backend url : https://challenge-backends.herokuapp.com/
+frontend repo : https://github.com/KABIKA681/Typescript-redux-frontend
+frontend url : https://wizardly-golick-57fadb.netlify.app
 
 ## Configure app
 
