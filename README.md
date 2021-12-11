@@ -49,11 +49,11 @@ After installing node, this project will need yarn too, so just run the followin
 
 ---
 
-## Install
-backend repo : https://github.com/KABIKA681/challenge-backend
-Backend url : https://challenge-backends.herokuapp.com/
-frontend repo : https://github.com/KABIKA681/Typescript-redux-frontend
-frontend url : https://wizardly-golick-57fadb.netlify.app
+## How to run
+- backend repo : https://github.com/KABIKA681/challenge-backend
+- Backend url : https://challenge-backends.herokuapp.com/
+- frontend repo : https://github.com/KABIKA681/Typescript-redux-frontend
+- frontend url : https://wizardly-golick-57fadb.netlify.app
 
 ## Configure app
 
