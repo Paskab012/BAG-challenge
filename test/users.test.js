@@ -7,7 +7,7 @@ import {
   existingUser,
   loginUser,
   invalidLoginUser,
-  invalidLoginUserPassword
+  invalidLoginUserPassword,
 } from '../testingData/user.json';
 import { profileContent, invalidToken } from '../testingData/profile.json';
 

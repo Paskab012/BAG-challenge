@@ -3,7 +3,6 @@
 
 # challenge-backend
 
-
 ---
 
 ## Requirements
@@ -49,7 +48,8 @@ After installing node, this project will need yarn too, so just run the followin
 
 ---
 
-## How to run
+## LIVE DEMO
+
 - backend repo : https://github.com/KABIKA681/challenge-backend
 - Backend url : https://challenge-backends.herokuapp.com/
 - frontend repo : https://github.com/KABIKA681/Typescript-redux-frontend

@@ -6,7 +6,10 @@ import User from '../models/User';
 import Profile from '../models/Profile';
 import Category from '../models/Category';
 import {
-  existingUser, loginUser, normalUser, isNotTheOwner
+  existingUser,
+  loginUser,
+  normalUser,
+  isNotTheOwner,
 } from '../testingData/user.json';
 import Products from '../models/Products';
 
